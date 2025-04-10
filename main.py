@@ -1,6 +1,6 @@
 import pygame as pg
 
-background_color = (23, 92, 86)
+background_color = (7, 144, 199)
 
 # initialize pygame
 pg.init()
@@ -167,118 +167,182 @@ emotions = {
         "eyebrow_angry_enabled": 0,
         "eyebrow_angry_position": pg.Vector2(-90, -150),
         "eyebrow_calm_enabled": 0,
-        "eyebrow_calm_position": pg.Vector2(-300, -150),
+        "eyebrow_calm_position": pg.Vector2(-300, -190),
 
         "blush_enabled": 0,
-        "blush_position": pg.Vector2(-300, 150),
+        "blush_position": pg.Vector2(-300, 350),
     },
 
-    # Used when waiting for a command
-    "idle": {
-        "eye_position": pg.Vector2(-200, 20),
+    "smile": {
+        "eye_position": pg.Vector2(-200, -20),
         "eye_type": 0,
-        "pupil_position": pg.Vector2(-180, 50),
+        "pupil_position": pg.Vector2(-185, -25),
 
-        "mouth_position": pg.Vector2(0, 150),
-        "mouth_type": 0,
+        "mouth_position": pg.Vector2(0, 130),
+        "mouth_type": 1,
 
         "eyebrow_angry_enabled": 0,
-        "eyebrow_angry_position": pg.Vector2(-90, -150),
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
         "eyebrow_calm_enabled": 0,
         "eyebrow_calm_position": pg.Vector2(-300, -150),
 
         "blush_enabled": 0,
-        "blush_position": pg.Vector2(-300, 150),
+        "blush_position": pg.Vector2(-300, 350),
     },
 
-    # Used when his name is called
+    "ecxited": {
+        "eye_position": pg.Vector2(-180, -20),
+        "eye_type": 1,
+        "pupil_position": pg.Vector2(-180, -40),
+
+        "mouth_position": pg.Vector2(0, 100),
+        "mouth_type": 1,
+
+        "eyebrow_angry_enabled": 0,
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 0,
+        "eyebrow_calm_position": pg.Vector2(-300, -150),
+
+        "blush_enabled": 0,
+        "blush_position": pg.Vector2(-300, 350),
+    },
+
     "happy": {
         "eye_position": pg.Vector2(-200, -50),
-        "eye_type": 0,
+        "eye_type": 2,
         "pupil_position": pg.Vector2(-180, -70),
 
         "mouth_position": pg.Vector2(0, 120),
         "mouth_type": 1,
 
         "eyebrow_angry_enabled": 0,
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 0,
+        "eyebrow_calm_position": pg.Vector2(-300, -150),
+
+        "blush_enabled": 0,
+        "blush_position": pg.Vector2(-300, 350),
+    },
+
+    # Used when waiting for a command
+    "idle": {
+        "eye_position": pg.Vector2(-200, 20),
+        "eye_type": 0,
+        "pupil_position": pg.Vector2(-180, 30),
+
+        "mouth_position": pg.Vector2(0, 150),
+        "mouth_type": 0,
+
+        "eyebrow_angry_enabled": 0,
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 0,
+        "eyebrow_calm_position": pg.Vector2(-300, -150),
+
+        "blush_enabled": 0,
+        "blush_position": pg.Vector2(-300, 350),
+    },
+
+    # Used when his name is called
+
+    "sad": {
+        "eye_position": pg.Vector2(-200, 0),
+        "eye_type": 0,
+        "pupil_position": pg.Vector2(-185, 15),
+
+        "mouth_position": pg.Vector2(0, 150),
+        "mouth_type": 2,
+
+        "eyebrow_angry_enabled": 0,
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 0,
+        "eyebrow_calm_position": pg.Vector2(-300, -150),
+
+        "blush_enabled": 0,
+        "blush_position": pg.Vector2(-300, 350),
+    },
+
+
+    "angry": {
+        "eye_position": pg.Vector2(-200, 0),
+        "eye_type": 0,
+        "pupil_position": pg.Vector2(-180, 10),
+
+        "mouth_position": pg.Vector2(0, 160),
+        "mouth_type": 2,
+
+        "eyebrow_angry_enabled": 1,
         "eyebrow_angry_position": pg.Vector2(-90, -150),
         "eyebrow_calm_enabled": 0,
         "eyebrow_calm_position": pg.Vector2(-300, -150),
 
         "blush_enabled": 0,
-        "blush_position": pg.Vector2(-300, 150),
+        "blush_position": pg.Vector2(-300, 350),
     },
 
-    "calm": {
-        "eye_position": pg.Vector2(-200, 10),
-        "eye_type": 3,
-        "pupil_position": pg.Vector2(-180, 100),
+    "blush": {
+        "eye_position": pg.Vector2(-200, -20),
+        "eye_type": 2,
+        "pupil_position": pg.Vector2(-180, -10),
 
         "mouth_position": pg.Vector2(0, 140),
         "mouth_type": 1,
 
         "eyebrow_angry_enabled": 0,
-        "eyebrow_angry_position": pg.Vector2(-90, -150),
-        "eyebrow_calm_enabled": 0,
-        "eyebrow_calm_position": pg.Vector2(-300, -150),
-
-        "blush_enabled": 0,
-        "blush_position": pg.Vector2(-300, 150),
-    },
-
-    "ecxited": {
-        "eye_position": pg.Vector2(-180, -20),
-        "eye_type": 1,
-        "pupil_position": pg.Vector2(-180, -80),
-
-        "mouth_position": pg.Vector2(0, 80),
-        "mouth_type": 1,
-
-        "eyebrow_angry_enabled": 0,
-        "eyebrow_angry_position": pg.Vector2(-90, -150),
-        "eyebrow_calm_enabled": 0,
-        "eyebrow_calm_position": pg.Vector2(-300, -150),
-
-        "blush_enabled": 0,
-        "blush_position": pg.Vector2(-300, 150),
-    },
-
-    "shy": {
-        "eye_position": pg.Vector2(-200, 20),
-        "eye_type": 0,
-        "pupil_position": pg.Vector2(-175, 60),
-
-        "mouth_position": pg.Vector2(0, 160),
-        "mouth_type": 1,
-
-        "eyebrow_angry_enabled": 0,
-        "eyebrow_angry_position": pg.Vector2(-90, -150),
-        "eyebrow_calm_enabled": 0,
-        "eyebrow_calm_position": pg.Vector2(-300, -150),
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 1,
+        "eyebrow_calm_position": pg.Vector2(-330, -170),
 
         "blush_enabled": 1,
         "blush_position": pg.Vector2(-300, 150),
     },
+
+    "pensive": {
+        "eye_position": pg.Vector2(-200, 30),
+        "eye_type": 3,
+        "pupil_position": pg.Vector2(-180, 10),
+
+        "mouth_position": pg.Vector2(0, 160),
+        "mouth_type": 0,
+
+        "eyebrow_angry_enabled": 0,
+        "eyebrow_angry_position": pg.Vector2(-90, -190),
+        "eyebrow_calm_enabled": 1,
+        "eyebrow_calm_position": pg.Vector2(-300, -150),
+
+        "blush_enabled": 0,
+        "blush_position": pg.Vector2(-300, 150),
+    },
+
 }
 
-last_emotion = "idle"
-current_emotion = "ecxited"
+last_emotion = "blush"
+current_emotion = "pensive"
 
 
 def changeEmotion(newEmotion):
-    global last_emotion, current_emotion, current_fame
+    global last_emotion, current_emotion, current_frame
 
     if not newEmotion == current_emotion:
         last_emotion = current_emotion
         current_emotion = newEmotion
-        current_fame = 0
+        current_frame = 0
 
 
 animation_length = 45  # frames
-current_fame = 0
+current_frame = 0
+
+
+def flipEmotion():
+    global last_emotion, current_emotion, current_frame
+    temp = last_emotion
+    last_emotion = current_emotion
+    current_emotion = temp
+    current_frame = 0
+
 
 def drawDebugInfo():
     pass
+
 
 running = True
 while running:
@@ -288,28 +352,36 @@ while running:
         if event.type == pg.KEYDOWN:
             match event.key:
                 case pg.K_1:
-                    changeEmotion("calm")
+                    changeEmotion("smile")
                 case pg.K_2:
-                    changeEmotion("shy")
+                    changeEmotion("ecxited")
                 case pg.K_3:
-                    changeEmotion("ecxited")
+                    changeEmotion("happy")
                 case pg.K_4:
-                    changeEmotion("ecxited")
+                    changeEmotion("idle")
+                case pg.K_5:
+                    changeEmotion("sad")
+                case pg.K_6:
+                    changeEmotion("angry")
+                case pg.K_7:
+                    changeEmotion("blush")
+                case pg.K_8:
+                    changeEmotion("pensive")
 
     # clear the screen
     screen.fill(background_color)
 
     # draw to the screen
     interpolated_emotion = lerpEmotion(
-        emotions[last_emotion], emotions[current_emotion], easeOutExpo(current_fame/animation_length))
+        emotions[last_emotion], emotions[current_emotion], easeOutExpo(current_frame/animation_length))
 
     drawEmotion(emotion=interpolated_emotion)
 
     # flip() updates the screen to make our changes visible
     pg.display.flip()
 
-    if current_fame < animation_length:
-        current_fame += 1
+    if current_frame < animation_length:
+        current_frame += 1
 
     # how many updates per second
     clock.tick(60)
