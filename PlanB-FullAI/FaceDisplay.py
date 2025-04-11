@@ -1,14 +1,18 @@
+import threading
 import pygame as pg
 
 background_color = (7, 144, 199)
 
 # initialize pygame
 pg.init()
+
 screen_size = (800, 480)
 
-# create a window
 screen = pg.display.set_mode(screen_size)
 pg.display.set_caption("Ekko Robot Assistant")
+
+
+# create a window
 
 # clock is used to set a max fps
 clock = pg.time.Clock()
@@ -328,7 +332,7 @@ def changeEmotion(newEmotion):
         current_frame = 0
 
 
-animation_length = 45  # frames
+animation_length = 120  # frames
 current_frame = 0
 
 
@@ -345,45 +349,46 @@ def drawDebugInfo():
 
 
 running = True
-while running:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            running = False
-        if event.type == pg.KEYDOWN:
-            match event.key:
-                case pg.K_1:
-                    changeEmotion("smile")
-                case pg.K_2:
-                    changeEmotion("ecxited")
-                case pg.K_3:
-                    changeEmotion("happy")
-                case pg.K_4:
-                    changeEmotion("idle")
-                case pg.K_5:
-                    changeEmotion("sad")
-                case pg.K_6:
-                    changeEmotion("angry")
-                case pg.K_7:
-                    changeEmotion("blush")
-                case pg.K_8:
-                    changeEmotion("pensive")
 
-    # clear the screen
-    screen.fill(background_color)
 
-    # draw to the screen
-    interpolated_emotion = lerpEmotion(
-        emotions[last_emotion], emotions[current_emotion], easeOutExpo(current_frame/animation_length))
+def runFaceDisplay():
+    global running, current_frame, animation_length
 
-    drawEmotion(emotion=interpolated_emotion)
+    while running:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                running = False
+            if event.type == pg.KEYDOWN:
+                match event.key:
+                    case pg.K_1:
+                        changeEmotion("idle")
+                    case pg.K_2:
+                        changeEmotion("happy")
+                    case pg.K_3:
+                        changeEmotion("sad")
+                    case pg.K_4:
+                        changeEmotion("angry")
 
-    # flip() updates the screen to make our changes visible
-    pg.display.flip()
+        # clear the screen
+        screen.fill(background_color)
 
-    if current_frame < animation_length:
-        current_frame += 1
+        # draw to the screen
+        interpolated_emotion = lerpEmotion(
+            emotions[last_emotion], emotions[current_emotion], easeOutExpo(current_frame/animation_length))
 
-    # how many updates per second
-    clock.tick(60)
+        drawEmotion(emotion=interpolated_emotion)
 
-pg.quit()
+        # flip() updates the screen to make our changes visible
+        pg.display.flip()
+
+        if current_frame < animation_length:
+            current_frame += 1
+
+        # how many updates per second
+        clock.tick(60)
+
+    pg.quit()
+
+
+faceThread = threading.Thread(target=runFaceDisplay())
+faceThread.start()
